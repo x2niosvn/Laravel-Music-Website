@@ -1,3 +1,5 @@
+@section('title', 'List Music')
+
 <x-app-layout>
 
 
@@ -33,6 +35,7 @@
                             <th class="text">Title</th>
                             <th class="text">Artist</th>
                             <th class="text">Genre</th>
+                            <th class="text">Image</th>
                             <th class="text">Action</th>
                         </tr>
                     </thead>
@@ -42,6 +45,11 @@
                                 <td>{{ $music->title }}</td>
                                 <td>{{ $music->artist }}</td>
                                 <td>{{ $music->genre }}</td>
+                                <td>
+                                    @if($music->img_path)
+                                    <img src="{{ route('musicm.img', ['filename' => $music->img_path]) }}" alt="">
+                                    @endif
+                                </td>
                                 <td class="text-center">
                                     <a class="px-4 py-2 bg-gray-800 dark:bg-gray-200 border border-transparent rounded-md font-semibold text-xs text-white dark:text-gray-800 uppercase tracking-widest hover:bg-gray-700 dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150"
                                         href="{{ route('music.edit', ['id' => $music->id]) }}">Edit</a>

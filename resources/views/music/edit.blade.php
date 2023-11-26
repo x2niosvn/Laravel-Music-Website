@@ -1,3 +1,5 @@
+@section('title', 'Edit Music')
+
 <x-app-layout>
 
 
@@ -51,6 +53,19 @@
                                 class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full"
                                 required>
                         </div>
+
+                        <div>
+                            <label class="block font-medium text-sm text-gray-700 dark:text-gray-300" for="file">Music File</label>
+                            <input type="file" name="file" accept=".mp3" value="{{ $music->file_path }}"
+                                class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full">
+                        </div>
+                        
+                        <div>
+                            <label class="block font-medium text-sm text-gray-700 dark:text-gray-300" for="image">Image File</label>
+                            <input type="file" name="image" accept=".jpg, .png, .webp" value="{{ $music->img_path }}"
+                                class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full">
+                        </div>
+
                         <br>
                         <div>
                             <button type="submit"

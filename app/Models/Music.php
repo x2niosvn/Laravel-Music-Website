@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Music extends Model
 {
-    protected $fillable = ['title', 'artist', 'genre', 'file_path', 'user_id'];
+    protected $fillable = ['title', 'artist', 'genre', 'file_path', 'img_path', 'user_id'];
 
     public function user()
     {
+        //Gắn user_id tương ứng với cột id trong bảng user
         return $this->belongsTo(User::class);
     }
 }

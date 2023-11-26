@@ -1,3 +1,5 @@
+@section('title', 'Upload Music')
+
 <x-app-layout>
 
     <div class="py-12">
@@ -33,6 +35,10 @@
                                     <div>
                                         <label class="block font-medium text-sm text-gray-700 dark:text-gray-300" for="genre">Genre</label>
                                         <input type="text" name="genre" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full" required>
+                                    </div>
+                                    <div>
+                                        <label class="block font-medium text-sm text-gray-700 dark:text-gray-300" for="file">Image song</label>
+                                        <input type="file" name="image" accept=".png, .jpg, .webp" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full" required>
                                     </div>
                                     <div>
                                         <label class="block font-medium text-sm text-gray-700 dark:text-gray-300" for="file">Music file (MP3 only)</label>

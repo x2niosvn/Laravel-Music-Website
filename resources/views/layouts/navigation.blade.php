@@ -15,14 +15,16 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-
+                    @if(auth()->check() && auth()->user()->role == 1)
                     <x-nav-link :href="route('music.create')" :active="request()->routeIs('music.create')">
                         {{ __('Music Upload') }}
                     </x-nav-link>
-
+                
                     <x-nav-link :href="route('music.list')" :active="request()->routeIs('music.list')">
                         {{ __('Music Management') }}
                     </x-nav-link>
+                @endif
+                
                     
 
                 </div>
@@ -81,13 +83,19 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
+
+
+            
+            @if(auth()->check() && auth()->user()->role == 1)
             <x-responsive-nav-link :href="route('music.create')" :active="request()->routeIs('music.create')">
                 {{ __('Music Upload') }}
             </x-responsive-nav-link>
-
+        
             <x-responsive-nav-link :href="route('music.list')" :active="request()->routeIs('music.list')">
                 {{ __('Music Management') }}
             </x-responsive-nav-link>
+            @endif
+        
 
 
         </div>

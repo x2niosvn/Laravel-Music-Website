@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('title', config('app.name', 'Laravel'))</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -34,6 +34,8 @@
                 {{ $slot }}
                 
             </main>
+
+            
         </div>
 <!-- jQuery -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -43,10 +45,30 @@
     <script>
         $(document).ready( function () {
             $('#musicTable').DataTable({
-                "lengthChange": false, // Tắt phần "Show [X] entries"
-                "pageLength": 10 // Mặc định hiển thị 10 dòng một lần
+                "lengthChange": false, 
+                "pageLength": 10 
             });
         } );
+
+
     </script>
+    <script>
+        $(document).ready(function() {
+            // Lấy danh sách tất cả các thẻ audio
+            const audioPlayers = document.querySelectorAll('.audio-player');
+        
+            // Lắng nghe sự kiện khi bắt đầu phát
+            audioPlayers.forEach(function(player) {
+                player.addEventListener('play', function() {
+                    audioPlayers.forEach(function(otherPlayer) {
+                        if (otherPlayer !== player && !otherPlayer.paused) {
+                            otherPlayer.pause();
+                        }
+                    });
+                });
+            });
+        });
+        </script>
+        
     </body>
 </html>
